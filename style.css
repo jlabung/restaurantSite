@@ -3,6 +3,8 @@
 	box-sizing: border-box;
 }
 
+
+
 HTML{
 scroll-behavior: smooth;
 }
@@ -52,7 +54,9 @@ img{
 
 .discount{
 	text-decoration: line-through;
+	color: crimson;
 }
+
 
 
 .header {
@@ -60,6 +64,8 @@ img{
 	background: #B1B3B3FF;
 	border-radius: 12px;
 	position: relative;
+	display:flex;
+	flex-direction: column;
 }
 
 #aside {
@@ -194,11 +200,13 @@ h1{
 	border-radius: 25px;
 	width: 100%;
 	padding: 1rem;
-	margin-top: 1rem;
-	display: flex;
+	margin-top: auto;
+	 margin-bottom: 1rem;
 	color: black;
 	transition: all 0.4s;
 	 cursor: pointer;
+
+
 }
 .hide {
   display: none;
@@ -217,4 +225,6 @@ h1{
   border: 1px solid #7c1f17;
   margin: 1em;
   padding: 2em;
+	background-color: rgba(255, 255, 255, 0.7);
 }
+

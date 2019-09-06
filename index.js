@@ -56,10 +56,6 @@ function showCourse(course) {
 		myCopy.querySelector("article").classList.remove("soldOut");
 	}
 
-	myCopy.querySelector(".containAlcohol").textContent = "Alcohol:"+course.alcohol+";";
-
-	myCopy.querySelector(".vegeterian").textContent = "Vegetarian:"+course.vegetarian+";";
-
 
 	myCopy.querySelector("button").addEventListener("click", () => {
 		fetch(`https://kea-alt-del.dk/t5/api/product?id=${course.id}`)
@@ -67,23 +63,28 @@ function showCourse(course) {
 			.then(showDetails);
 
 	});
+		document.querySelector(`#${course.category}`).appendChild(myCopy);
 
-	function showDetails(data) {
-		modal.querySelector(".modalName").textContent = course.name;
+
+}
+
+	function showDetails(data){
+		modal.querySelector(".modalName").textContent = data.name;
 
 		modal.querySelector(".modal_image").src = "imgs/imgs/small/" + data.image + "-sm.jpg";
 
-		modal.querySelector(".description").textContent = course.shortdescription;
+		modal.querySelector(".description").textContent = data.shortdescription;
 
-		modal.querySelector(".modalPrice").textContent = course.price;
+		modal.querySelector(".modalPrice").textContent = data.price;
+
+		modal.querySelector(".containAlcohol").textContent = "Alcohol:"+data.alcohol+"%;";
 
 
 
+		modal.querySelector(".vegeterian").textContent = data.vegetarian;
 
 		modal.classList.remove("hide");
-	}
 
-	document.querySelector(`#${course.category}`).appendChild(myCopy)
 }
 
 
@@ -94,5 +95,5 @@ function addCopy() {
 	const myTemplate = document.querySelector("template").content;
 	const myCopy = myTemplate.cloneNode(true);
 	const main = document.querySelector("aside");
-	aside.appendChild(myCopy)
+	aside.appendChild(myCopy);
 }
